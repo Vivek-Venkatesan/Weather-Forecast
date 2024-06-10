@@ -12,7 +12,7 @@ import project.weather_forecast.Exception.NotFoundException;
 import project.weather_forecast.Service.WeatherForecastService;
 
 @RestController
-@RequestMapping("/weather")
+//@RequestMapping("/weather")
 public class WeatherForecast {
     private final WeatherForecastService weatherForecastService;
 
@@ -20,8 +20,8 @@ public class WeatherForecast {
         this.weatherForecastService = weatherForecastService;
     }
 
-    @GetMapping("/city/{city}")
-    public @ResponseBody WeatherForecastDto getWeatherByCity(@PathVariable("city") String city) throws NotFoundException {
-        return weatherForecastService.getWeatherForecast(city);
+    @GetMapping("/city/{cityName}")
+    public  WeatherForecastDto getWeatherByCity(@PathVariable("cityName") String cityName) throws NotFoundException {
+        return weatherForecastService.getWeatherForecast(cityName);
     }
 }
